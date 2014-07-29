@@ -44,7 +44,7 @@ func checkssl(domain string) (int64, error) {
 			}
 		}
 	}
-	if min >= 10000000 {
+	if min >= 1000000 {
 		return -2, errors.New("No valid Expiration found\n")
 	} else {
 		return min, nil
