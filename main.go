@@ -12,13 +12,14 @@ import (
 func main() {
 	if len(os.Args) < 2 {
 		fmt.Fprintf(os.Stderr, "Host missing\n")
-		os.Exit(1)
+		os.Exit(-2)
 	}
 	domain := os.Args[1]
 	daysleft, err := checkssl(domain)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error: %s\n", err.Error())
-		os.Exit(2)
+		fmt.Fprintf(os.Stderr, "Error: %s", err.Error())
+		fmt.Println(-1)
+		os.Exit(-1)
 	}
 	fmt.Println(daysleft)
 }
